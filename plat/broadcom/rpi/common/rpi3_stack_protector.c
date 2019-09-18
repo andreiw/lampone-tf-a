@@ -9,7 +9,7 @@
 #include <lib/utils.h>
 #include <lib/utils_def.h>
 
-#include "rpi3_private.h"
+#include <rpi_private_common.h>
 
 /* Get 128 bits of entropy and fuse the values together to form the canary. */
 #define TRNG_NBYTES	16U

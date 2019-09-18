@@ -12,7 +12,7 @@ PLAT_COMMON		:=	${PLAT_DIR}/common
 PLAT_INCLUDES		:=	-I${PLAT_COMMON}/include -I${PLAT_SOC}/include -I${PLAT_DIR}/${PLAT}/include
 
 PLAT_BL_COMMON_SOURCES	:=	drivers/ti/uart/aarch64/16550_console.S	\
-				${PLAT_SOC}/rpi3_common.c		\
+				${PLAT_COMMON}/rpi3_common.c		\
 				${XLAT_TABLES_LIB_SRCS}
 
 BL1_SOURCES		+=	drivers/io/io_fip.c			\
@@ -21,8 +21,8 @@ BL1_SOURCES		+=	drivers/io/io_fip.c			\
 				plat/common/aarch64/platform_mp_stack.S	\
 				${PLAT_SOC}/aarch64/plat_helpers.S	\
 				${PLAT_COMMON}/rpi3_bl1_setup.c		\
-				${PLAT_SOC}/rpi3_io_storage.c		\
-				${PLAT_SOC}/rpi3_mbox.c
+				${PLAT_COMMON}/rpi3_io_storage.c	\
+				${PLAT_COMMON}/rpi3_mbox.c
 
 BL2_SOURCES		+=	common/desc_image_load.c		\
 				drivers/io/io_fip.c			\
@@ -39,13 +39,13 @@ BL2_SOURCES		+=	common/desc_image_load.c		\
 				${PLAT_SOC}/aarch64/plat_helpers.S	\
 				${PLAT_SOC}/aarch64/rpi3_bl2_mem_params_desc.c \
 				${PLAT_SOC}/rpi3_bl2_setup.c		\
-				${PLAT_SOC}/rpi3_image_load.c		\
-				${PLAT_SOC}/rpi3_io_storage.c
+				${PLAT_COMMON}/rpi3_image_load.c	\
+				${PLAT_COMMON}/rpi3_io_storage.c
 
 BL31_SOURCES		+=	plat/common/plat_psci_common.c		\
 				${PLAT_SOC}/aarch64/plat_helpers.S	\
 				${PLAT_COMMON}/rpi3_bl31_setup.c	\
-				${PLAT_SOC}/rpi3_pm.c			\
+				${PLAT_COMMON}/rpi3_pm.c		\
 				${PLAT_SOC}/rpi3_topology.c		\
 				${LIBFDT_SRCS}
 
@@ -142,8 +142,8 @@ ifeq (${ARCH},aarch32)
 endif
 
 ifneq ($(ENABLE_STACK_PROTECTOR), 0)
-PLAT_BL_COMMON_SOURCES	+=	${PLAT_SOC}/rpi3_rng.c			\
-				${PLAT_SOC}/rpi3_stack_protector.c
+PLAT_BL_COMMON_SOURCES	+=	${PLAT_COMMON}/rpi3_rng.c		\
+				${PLAT_COMMON}/rpi3_stack_protector.c
 endif
 
 ifeq (${SPD},opteed)
@@ -173,13 +173,13 @@ ifneq (${TRUSTED_BOARD_BOOT},0)
     BL1_SOURCES		+=	${AUTH_SOURCES}				\
 				bl1/tbbr/tbbr_img_desc.c		\
 				plat/common/tbbr/plat_tbbr.c		\
-				${PLAT_SOC}/rpi3_trusted_boot.c	     	\
-				${PLAT_SOC}/rpi3_rotpk.S
+				${PLAT_COMMON}/rpi3_trusted_boot.c	\
+				${PLAT_COMMON}/rpi3_rotpk.S
 
     BL2_SOURCES		+=	${AUTH_SOURCES}				\
 				plat/common/tbbr/plat_tbbr.c		\
-				${PLAT_SOC}/rpi3_trusted_boot.c	     	\
-				${PLAT_SOC}/rpi3_rotpk.S
+				${PLAT_COMMON}/rpi3_trusted_boot.c	\
+				${PLAT_COMMON}/rpi3_rotpk.S
 
     ROT_KEY             = $(BUILD_PLAT)/rot_key.pem
     ROTPK_HASH          = $(BUILD_PLAT)/rotpk_sha256.bin

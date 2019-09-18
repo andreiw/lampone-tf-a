@@ -17,7 +17,7 @@
 #include <lib/xlat_tables/xlat_tables_v2.h>
 
 #include <rpi_hw.h>
-#include "rpi3_private.h"
+#include <rpi_private_common.h>
 
 #define MAP_DEVICE0	MAP_REGION_FLAT(DEVICE0_BASE,			\
 					DEVICE0_SIZE,			\
