@@ -11,9 +11,9 @@
 #include <common/debug.h>
 #include <lib/mmio.h>
 #include <drivers/delay_timer.h>
-#include <drivers/rpi3/sdhost/rpi3_sdhost.h>
+#include <drivers/rpi/sdhost/rpi3_sdhost.h>
 #include <drivers/mmc.h>
-#include <drivers/rpi3/gpio/rpi3_gpio.h>
+#include <drivers/rpi/gpio/rpi3_gpio.h>
 #include <errno.h>
 #include <string.h>
 

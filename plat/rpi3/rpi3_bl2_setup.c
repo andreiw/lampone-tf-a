@@ -16,8 +16,8 @@
 #include <lib/xlat_tables/xlat_mmu_helpers.h>
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <drivers/generic_delay_timer.h>
-#include <drivers/rpi3/gpio/rpi3_gpio.h>
-#include <drivers/rpi3/sdhost/rpi3_sdhost.h>
+#include <drivers/rpi/gpio/rpi3_gpio.h>
+#include <drivers/rpi/sdhost/rpi3_sdhost.h>
 
 #include "rpi3_private.h"
 
