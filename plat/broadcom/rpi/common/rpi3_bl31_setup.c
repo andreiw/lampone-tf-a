@@ -15,7 +15,7 @@
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <plat/common/platform.h>
 
-#include "rpi3_private.h"
+#include <rpi_private_common.h>
 
 /*
  * Placeholder variables for copying the arguments that have been passed to

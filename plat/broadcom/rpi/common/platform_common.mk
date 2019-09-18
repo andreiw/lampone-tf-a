@@ -44,7 +44,7 @@ BL2_SOURCES		+=	common/desc_image_load.c		\
 
 BL31_SOURCES		+=	plat/common/plat_psci_common.c		\
 				${PLAT_SOC}/aarch64/plat_helpers.S	\
-				${PLAT_SOC}/rpi3_bl31_setup.c		\
+				${PLAT_COMMON}/rpi3_bl31_setup.c	\
 				${PLAT_SOC}/rpi3_pm.c			\
 				${PLAT_SOC}/rpi3_topology.c		\
 				${LIBFDT_SRCS}
