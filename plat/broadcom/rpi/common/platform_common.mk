@@ -8,8 +8,9 @@ include lib/libfdt/libfdt.mk
 include lib/xlat_tables_v2/xlat_tables.mk
 
 PLAT_DIR		:=	plat/broadcom/rpi
+PLAT_SOC		:=	${PLAT_DIR}/${PLAT}
 PLAT_COMMON		:=	${PLAT_DIR}/common
-PLAT_INCLUDES		:=	-I${PLAT_COMMON}/include -I${PLAT_SOC}/include -I${PLAT_DIR}/${PLAT}/include
+PLAT_INCLUDES		:=	-I${PLAT_COMMON}/include -I${PLAT_SOC}/include
 
 PLAT_BL_COMMON_SOURCES	:=	drivers/ti/uart/aarch64/16550_console.S	\
 				${PLAT_COMMON}/rpi3_common.c		\
@@ -19,7 +20,7 @@ BL1_SOURCES		+=	drivers/io/io_fip.c			\
 				drivers/io/io_memmap.c			\
 				drivers/io/io_storage.c			\
 				plat/common/aarch64/platform_mp_stack.S	\
-				${PLAT_SOC}/aarch64/plat_helpers.S	\
+				${PLAT_COMMON}/aarch64/plat_helpers.S	\
 				${PLAT_COMMON}/rpi3_bl1_setup.c		\
 				${PLAT_COMMON}/rpi3_io_storage.c	\
 				${PLAT_COMMON}/rpi3_mbox.c
@@ -36,17 +37,16 @@ BL2_SOURCES		+=	common/desc_image_load.c		\
 				drivers/mmc/mmc.c			\
 				${PLAT_COMMON}/drivers/sdhost/rpi3_sdhost.c	\
 				plat/common/aarch64/platform_mp_stack.S	\
-				${PLAT_SOC}/aarch64/plat_helpers.S	\
-				${PLAT_SOC}/aarch64/rpi3_bl2_mem_params_desc.c \
-				${PLAT_SOC}/rpi3_bl2_setup.c		\
+				${PLAT_COMMON}/aarch64/plat_helpers.S	\
+				${PLAT_COMMON}/aarch64/rpi3_bl2_mem_params_desc.c \
 				${PLAT_COMMON}/rpi3_image_load.c	\
 				${PLAT_COMMON}/rpi3_io_storage.c
 
 BL31_SOURCES		+=	plat/common/plat_psci_common.c		\
-				${PLAT_SOC}/aarch64/plat_helpers.S	\
+				${PLAT_COMMON}/aarch64/plat_helpers.S	\
 				${PLAT_COMMON}/rpi3_bl31_setup.c	\
 				${PLAT_COMMON}/rpi3_pm.c		\
-				${PLAT_SOC}/rpi3_topology.c		\
+				${PLAT_COMMON}/rpi3_topology.c		\
 				${LIBFDT_SRCS}
 
 # Platform Makefile target

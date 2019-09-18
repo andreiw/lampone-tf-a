@@ -10,7 +10,7 @@
 
 #include <arch.h>
 
-#include "rpi3_private.h"
+#include <rpi_private_common.h>
 
 /* The power domain tree descriptor */
 static unsigned char power_domain_tree_desc[] = {

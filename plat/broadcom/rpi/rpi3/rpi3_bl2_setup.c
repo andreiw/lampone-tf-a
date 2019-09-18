@@ -19,7 +19,7 @@
 #include <drivers/gpio/rpi3_gpio.h>
 #include <drivers/sdhost/rpi3_sdhost.h>
 
-#include "rpi3_private.h"
+#include <rpi_private_common.h>
 
 /* Data structure which holds the extents of the trusted SRAM for BL2 */
 static meminfo_t bl2_tzram_layout __aligned(CACHE_WRITEBACK_GRANULE);
