@@ -20,7 +20,7 @@ BL1_SOURCES		+=	drivers/io/io_fip.c			\
 				drivers/io/io_storage.c			\
 				plat/common/aarch64/platform_mp_stack.S	\
 				${PLAT_SOC}/aarch64/plat_helpers.S	\
-				${PLAT_SOC}/rpi3_bl1_setup.c		\
+				${PLAT_COMMON}/rpi3_bl1_setup.c		\
 				${PLAT_SOC}/rpi3_io_storage.c		\
 				${PLAT_SOC}/rpi3_mbox.c
 
