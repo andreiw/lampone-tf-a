@@ -9,7 +9,7 @@ include lib/xlat_tables_v2/xlat_tables.mk
 
 PLAT_DIR		:=	plat/broadcom/rpi
 PLAT_COMMON		:=	${PLAT_DIR}/common
-PLAT_INCLUDES		:=	-I${PLAT_COMMON}/include -I${PLAT_SOC}/include
+PLAT_INCLUDES		:=	-I${PLAT_COMMON}/include -I${PLAT_SOC}/include -I${PLAT_DIR}/${PLAT}/include
 
 PLAT_BL_COMMON_SOURCES	:=	drivers/ti/uart/aarch64/16550_console.S	\
 				${PLAT_SOC}/rpi3_common.c		\

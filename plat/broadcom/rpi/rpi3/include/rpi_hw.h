@@ -9,13 +9,12 @@
 
 #include <lib/utils_def.h>
 #include <rpi_hw_common.h>
+
 /*
  * Peripherals
  */
-
 #define RPI3_IO_BASE			ULL(0x3F000000)
 #define RPI3_IO_SIZE			ULL(0x01000000)
-
 
 /*
  * Local interrupt controller

@@ -8,7 +8,7 @@
 #define PLATFORM_DEF_H
 
 #include <platform_def_common.h>
-#include "../rpi3_hw.h"
+#include <rpi_hw.h>
 
 /*
  * System counter
