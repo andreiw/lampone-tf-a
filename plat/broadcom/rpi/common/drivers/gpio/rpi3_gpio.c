@@ -9,7 +9,7 @@
 #include <assert.h>
 #include <lib/mmio.h>
 #include <drivers/delay_timer.h>
-#include <drivers/rpi/gpio/rpi3_gpio.h>
+#include <drivers/gpio/rpi3_gpio.h>
 
 static struct rpi3_gpio_params rpi3_gpio_params;
 
