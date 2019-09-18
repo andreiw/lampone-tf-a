@@ -7,7 +7,9 @@
 include plat/broadcom/rpi/common/platform_common.mk
 
 BL1_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S
-BL2_SOURCES		+=	${PLAT_SOC}/rpi3_bl2_setup.c
+
+BL2_SOURCES		+=	${PLAT_SOC}/drivers/sdhost/rpi3_sdhost.c
+
 BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S
 
 # Tune compiler for Cortex-A53

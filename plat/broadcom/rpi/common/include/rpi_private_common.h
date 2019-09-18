@@ -30,6 +30,10 @@ unsigned int plat_rpi3_calc_core_pos(u_register_t mpidr);
 uint32_t rpi3_get_spsr_for_bl32_entry(void);
 uint32_t rpi3_get_spsr_for_bl33_entry(void);
 
+/* SDMMC support */
+void plat_rpi_sdmmc_start();
+void plat_rpi_sdmmc_stop();
+
 /* IO storage utility functions */
 void plat_rpi3_io_setup(void);
 

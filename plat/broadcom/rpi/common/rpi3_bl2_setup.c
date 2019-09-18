@@ -17,7 +17,6 @@
 #include <lib/xlat_tables/xlat_tables_defs.h>
 #include <drivers/generic_delay_timer.h>
 #include <drivers/gpio/rpi3_gpio.h>
-#include <drivers/sdhost/rpi3_sdhost.h>
 
 #include <rpi_private_common.h>
 
@@ -33,21 +32,6 @@ static void rpi3_gpio_setup(void)
 	params.reg_base = RPI3_GPIO_BASE;
 
 	rpi3_gpio_init(&params);
-}
-
-/* Data structure which holds the MMC info */
-static struct mmc_device_info mmc_info;
-
-static void rpi3_sdhost_setup(void)
-{
-	struct rpi3_sdhost_params params;
-
-	memset(&params, 0, sizeof(struct rpi3_sdhost_params));
-	params.reg_base = RPI3_SDHOST_BASE;
-	params.bus_width = MMC_BUS_WIDTH_1;
-	params.clk_rate = 50000000;
-	mmc_info.mmc_dev_type = MMC_IS_SD_HC;
-	rpi3_sdhost_init(&params, &mmc_info);
 }
 
 /*******************************************************************************
@@ -73,8 +57,8 @@ void bl2_early_platform_setup2(u_register_t arg0, u_register_t arg1,
 	/* Setup the BL2 memory layout */
 	bl2_tzram_layout = *mem_layout;
 
-	/* Setup SDHost driver */
-	rpi3_sdhost_setup();
+	/* Setup SDMMC driver */
+	plat_rpi_sdmmc_start();
 
 	plat_rpi3_io_setup();
 }
@@ -142,8 +126,8 @@ int bl2_plat_handle_post_image_load(unsigned int image_id)
 		bl_mem_params->ep_info.args.arg0 = 0xffff & read_mpidr();
 		bl_mem_params->ep_info.spsr = rpi3_get_spsr_for_bl33_entry();
 
-		/* Shutting down the SDHost driver to let BL33 drives SDHost.*/
-		rpi3_sdhost_stop();
+		plat_rpi_sdmmc_stop();
+
 		break;
 
 	default:

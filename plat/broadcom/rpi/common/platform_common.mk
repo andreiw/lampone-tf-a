@@ -33,9 +33,10 @@ BL2_SOURCES		+=	common/desc_image_load.c		\
 				drivers/delay_timer/delay_timer.c	\
 				drivers/delay_timer/generic_delay_timer.c \
 				${PLAT_COMMON}/drivers/gpio/rpi3_gpio.c	\
+				${PLAT_COMMON}/rpi3_bl2_setup.c		\
+				${PLAT_SOC}/${PLAT}_bl2_storage.c	\
 				drivers/io/io_block.c			\
 				drivers/mmc/mmc.c			\
-				${PLAT_COMMON}/drivers/sdhost/rpi3_sdhost.c	\
 				plat/common/aarch64/platform_mp_stack.S	\
 				${PLAT_COMMON}/aarch64/plat_helpers.S	\
 				${PLAT_COMMON}/aarch64/rpi3_bl2_mem_params_desc.c \
