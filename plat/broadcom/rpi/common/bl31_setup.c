@@ -205,7 +205,7 @@ static void rpi3_dtb_add_mem_rsv(void)
 }
 #endif
 
-void bl31_platform_setup(void)
+void bl31_platform_setup_common(void)
 {
 #ifdef RPI3_PRELOADED_DTB_BASE
 	/* Only modify a DTB if we know where to look for it */

@@ -8,7 +8,8 @@ include plat/broadcom/rpi/common/platform_common.mk
 
 BL1_SOURCES		+=	lib/cpus/aarch64/cortex_a72.S
 
-BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a72.S
+BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a72.S \
+				${PLAT_SOC}/rpi4_bl31_setup.c
 
 # Tune compiler for Cortex-A72
 ifeq ($(notdir $(CC)),armclang)

@@ -43,4 +43,7 @@ void rpi3_rng_read(void *buf, size_t len);
 /* VideoCore firmware commands */
 int rpi3_vc_hardware_get_board_revision(uint32_t *revision);
 
+/* BL31 common setup */
+void bl31_platform_setup_common(void);
+ 
 #endif /* RPI3_PRIVATE_COMMON_H */
