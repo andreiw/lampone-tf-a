@@ -11,7 +11,8 @@ BL1_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S
 BL2_SOURCES		+=	${PLAT_SOC}/drivers/sdhost/rpi3_sdhost.c
 
 BL31_SOURCES		+=	lib/cpus/aarch64/cortex_a53.S \
-				${PLAT_SOC}/rpi4_bl31_setup.c
+				${PLAT_SOC}/rpi4_bl31_setup.c \
+				${PLAT_SOC}/rpi3_pm.c \
 
 # Tune compiler for Cortex-A53
 ifeq ($(notdir $(CC)),armclang)

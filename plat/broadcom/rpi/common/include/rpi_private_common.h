@@ -45,5 +45,8 @@ int rpi3_vc_hardware_get_board_revision(uint32_t *revision);
 
 /* BL31 common setup */
 void bl31_platform_setup_common(void);
- 
+void __dead2 rpi3_watchdog_reset(void);
+void __dead2 rpi3_system_reset(void);
+void __dead2 rpi3_system_off(void);
+
 #endif /* RPI3_PRIVATE_COMMON_H */
